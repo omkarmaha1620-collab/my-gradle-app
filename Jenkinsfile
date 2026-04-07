@@ -2,13 +2,13 @@ pipeline {
     agent any 
 
     tools {
-        gradle 'Gradle'  
+        gradle 'gradle'  
         jdk 'jdk'
     }
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/omkarmaha1620-collab/my-gradle-app.git'
+                git branch: 'master', url:'https://github.com/omkarmaha1620-collab/my-gradle-app.git'
             }
         }
         stage('Build') {
