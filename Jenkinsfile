@@ -2,28 +2,31 @@ pipeline {
     agent any 
 
     tools {
-        gradle 'Gradle'  
+        gradle 'gradle' 
         jdk 'jdk'
     }
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url:'https://github.com/omkarmaha1620-collab/my-gradle-app'
+                git branch: 'master', url: 'https://github.com/omkarmaha1620-collab/my-gradle-app'
             }
         }
+
         stage('Build') {
             steps {
-               sh './gradlew build'
-sh './gradlew test'  
+                sh 'gradle build'  
             }
         }
+
         stage('Test') {
             steps {
-                sh 'gradle test'  
+                sh 'gradle test'
             }
         }
+
         stage('Run Application') {
             steps {
+          
                 sh 'gradle run'
             }
         }
